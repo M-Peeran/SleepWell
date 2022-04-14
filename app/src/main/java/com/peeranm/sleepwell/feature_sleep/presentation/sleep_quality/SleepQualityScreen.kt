@@ -3,7 +3,6 @@ package com.peeranm.sleepwell.feature_sleep.presentation.sleep_quality
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -13,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.peeranm.sleepwell.R
+import com.peeranm.sleepwell.feature_sleep.utils.putSleepQuality
 
 @Composable
 fun SleepQualityScreen(
@@ -132,11 +132,3 @@ fun SleepQualityScreen(
     }
 }
 
-private fun putSleepQuality(
-    sleepQuality: Int,
-    navController: NavController
-) {
-    navController.previousBackStackEntry?.savedStateHandle?.set(
-        "sleepQuality", sleepQuality
-    )
-}

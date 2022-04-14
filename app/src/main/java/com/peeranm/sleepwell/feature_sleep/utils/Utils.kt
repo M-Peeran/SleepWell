@@ -1,9 +1,19 @@
 package com.peeranm.sleepwell.feature_sleep.utils
 
+import androidx.navigation.NavController
 import com.peeranm.sleepwell.R
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
+
+ fun putSleepQuality(
+    sleepQuality: Int,
+    navController: NavController
+) {
+    navController.previousBackStackEntry?.savedStateHandle?.set(
+        "sleepQuality", sleepQuality
+    )
+}
 
 fun getImageRes(sleepQuality: Int): Int {
     return when (sleepQuality) {

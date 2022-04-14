@@ -26,10 +26,7 @@ class SleepViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             val lastSleep = sleepUseCases.getLastSleep() ?: return@launch
-            _sleepState.value = sleepState.value.copy(
-                isRecording = sleepState.value.isRecording,
-                lastSleep = lastSleep
-            )
+            _sleepState.value = sleepState.value.copy(lastSleep = lastSleep)
         }
     }
 
@@ -40,9 +37,7 @@ class SleepViewModel @Inject constructor(
                     sleepUseCases.insertSleep(
                         Sleep(startTimestamp = System.currentTimeMillis())
                     )
-                    _sleepState.value = sleepState.value.copy(
-                        isRecording = true
-                    )
+                    _sleepState.value = sleepState.value.copy(isRecording = true)
                 }
             }
             is SleepEvents.StopRecording -> {
@@ -54,9 +49,10 @@ class SleepViewModel @Inject constructor(
                             stopTimestamp = System.currentTimeMillis()
                         )
                     )
+                    val newLastSleep = sleepUseCases.getLastSleep()
                     _sleepState.value = sleepState.value.copy(
                         isRecording = false,
-                        lastSleep = sleepUseCases.getLastSleep()
+                        lastSleep = newLastSleep
                     )
                 }
             }
