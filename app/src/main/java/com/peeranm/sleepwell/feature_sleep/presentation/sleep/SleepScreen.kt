@@ -103,7 +103,7 @@ fun SleepScreen(
             OtherOptions(
                 modifier = Modifier.fillMaxWidth(),
                 onSleepRecordsClick = { navController.navigate(Screens.SleepsScreen.route) },
-                onAboutClick = {  }
+                onAboutClick = { navController.navigate(Screens.AboutScreen.route) }
             )
         }
     }

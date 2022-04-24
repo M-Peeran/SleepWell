@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,6 +14,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.peeranm.sleepwell.feature_sleep.presentation.about.AboutScreen
 import com.peeranm.sleepwell.feature_sleep.presentation.sleep.SleepScreen
 import com.peeranm.sleepwell.feature_sleep.presentation.sleep_details.SleepDetailsScreen
 import com.peeranm.sleepwell.feature_sleep.presentation.sleep_quality.SleepQualityScreen
@@ -56,9 +58,12 @@ class MainActivity : ComponentActivity() {
                                     nullable = false
                                 }
                             )
-                        ) { SleepDetailsScreen() }
+                        ) { SleepDetailsScreen(navController = navController) }
                         composable(route = Screens.SleepQualityScreen.route) {
                             SleepQualityScreen(navController = navController)
+                        }
+                        composable(route = Screens.AboutScreen.route) {
+                            AboutScreen(modifier = Modifier.fillMaxWidth())
                         }
                     }
                 }

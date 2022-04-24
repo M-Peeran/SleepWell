@@ -39,4 +39,5 @@ sealed class Screens(val route: String) {
     object SleepsScreen : Screens("screen_sleeps")
     object SleepDetailsScreen : Screens("screen_sleep_details")
     object SleepQualityScreen : Screens("screen_sleep_quality")
+    object AboutScreen: Screens("screen_about")
 }
