@@ -53,25 +53,23 @@ fun SleepsScreen(
                 is FetchResult.Loading -> {
                     CircularProgressIndicator()
                 }
-                is FetchResult.Success -> {
-                    LazyColumn(modifier = Modifier.fillMaxWidth()) {
-                        items(sleeps) { sleep ->
-                            if (sleep.stopTimestamp != -1L) {
-                                SleepItem(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    sleep = sleep,
-                                    onDeleteSleepCLick = { viewModel.onEvent(SleepsEvents.DeleteSleep(sleep)) },
-                                    onRecordClick = {
-                                        navController.navigate(
-                                            Screens.SleepDetailsScreen.getRouteWithArgValues("sleepId" to sleep.id)
-                                        )
-                                    }
+                else -> Unit
+            }
+            LazyColumn(modifier = Modifier.fillMaxWidth()) {
+                items(sleeps) { sleep ->
+                    if (sleep.stopTimestamp != -1L) {
+                        SleepItem(
+                            modifier = Modifier.fillMaxWidth(),
+                            sleep = sleep,
+                            onDeleteSleepCLick = { viewModel.onEvent(SleepsEvents.DeleteSleep(sleep)) },
+                            onRecordClick = {
+                                navController.navigate(
+                                    Screens.SleepDetailsScreen.getRouteWithArgValues("sleepId" to sleep.id)
                                 )
                             }
-                        }
+                        )
                     }
                 }
-                else -> {}
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.peeranm.sleepwell.feature_sleep.utils
 
 import com.peeranm.sleepwell.feature_sleep.model.Sleep
-import com.peeranm.sleepwell.feature_sleep.model.SleepEntity
+import com.peeranm.sleepwell.feature_sleep.data.local.entity.SleepEntity
 
 class SleepMapper : Mapper<SleepEntity, Sleep> {
 

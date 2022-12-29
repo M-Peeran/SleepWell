@@ -1,6 +1,6 @@
 package com.peeranm.sleepwell.feature_sleep.use_cases
 
-import com.peeranm.sleepwell.feature_sleep.data.SleepRepository
+import com.peeranm.sleepwell.feature_sleep.data.repository.SleepRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

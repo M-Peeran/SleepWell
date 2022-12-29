@@ -1,4 +1,4 @@
-package com.peeranm.sleepwell.feature_sleep.model
+package com.peeranm.sleepwell.feature_sleep.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

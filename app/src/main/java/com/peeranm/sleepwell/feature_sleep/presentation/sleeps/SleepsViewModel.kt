@@ -3,13 +3,12 @@ package com.peeranm.sleepwell.feature_sleep.presentation.sleeps
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.peeranm.sleepwell.feature_sleep.model.Sleep
 import com.peeranm.sleepwell.feature_sleep.use_cases.SleepUseCases
-import com.peeranm.sleepwell.feature_sleep.utils.DataState
+import com.peeranm.sleepwell.feature_sleep.utils.Resource
 import com.peeranm.sleepwell.feature_sleep.utils.FetchResult
 import com.peeranm.sleepwell.feature_sleep.utils.SleepsEvents
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -52,12 +51,12 @@ class SleepsViewModel @Inject constructor(
         sleepUseCases.getSleepsForUi()
             .onEach { dataState ->
                 when (dataState) {
-                    is DataState.None -> _fetchResultState.value = FetchResult.None
-                    is DataState.Loading -> _fetchResultState.value = FetchResult.Loading
-                    is DataState.Failure -> _fetchResultState.value = FetchResult.Failure(dataState.message)
-                    is DataState.Success -> {
+                    is Resource.None -> _fetchResultState.value = FetchResult.None
+                    is Resource.Loading -> _fetchResultState.value = FetchResult.Loading
+                    is Resource.Failure -> _fetchResultState.value = FetchResult.Failure(dataState.message)
+                    is Resource.Success -> {
+                        _fetchResultState.value = FetchResult.None
                         _sleeps.addAll(dataState.data)
-                        _fetchResultState.value = FetchResult.Success
                     }
                 }
             }.launchIn(viewModelScope)

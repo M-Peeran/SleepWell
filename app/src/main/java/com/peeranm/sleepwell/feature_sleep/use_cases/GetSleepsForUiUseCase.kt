@@ -1,19 +1,19 @@
 package com.peeranm.sleepwell.feature_sleep.use_cases
 
 import com.peeranm.sleepwell.feature_sleep.model.Sleep
-import com.peeranm.sleepwell.feature_sleep.utils.DataState
+import com.peeranm.sleepwell.feature_sleep.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class GetSleepsForUiUseCase(private val getSleeps: GetSleepsUseCase) {
 
-    operator fun invoke(): Flow<DataState<List<Sleep>>> = flow {
-        emit(DataState.Loading)
+    operator fun invoke(): Flow<Resource<List<Sleep>>> = flow {
+        emit(Resource.Loading)
         val sleeps = getSleeps()
         if (sleeps.isEmpty()) {
-            emit(DataState.Failure("No sleep data found on the device storage"))
+            emit(Resource.Failure("No sleep data found on the device storage"))
         } else {
-            emit(DataState.Success(sleeps))
+            emit(Resource.Success(sleeps))
         }
     }
 }

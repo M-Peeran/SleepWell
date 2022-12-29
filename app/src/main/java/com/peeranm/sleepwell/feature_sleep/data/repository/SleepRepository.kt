@@ -1,4 +1,4 @@
-package com.peeranm.sleepwell.feature_sleep.data
+package com.peeranm.sleepwell.feature_sleep.data.repository
 
 import com.peeranm.sleepwell.feature_sleep.model.Sleep
 

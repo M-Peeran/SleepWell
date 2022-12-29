@@ -2,9 +2,9 @@ package com.peeranm.sleepwell.di
 
 import android.app.Application
 import androidx.room.Room
-import com.peeranm.sleepwell.feature_sleep.data.SleepDatabase
-import com.peeranm.sleepwell.feature_sleep.data.SleepRepository
-import com.peeranm.sleepwell.feature_sleep.data.SleepRepositoryImpl
+import com.peeranm.sleepwell.feature_sleep.data.local.SleepDatabase
+import com.peeranm.sleepwell.feature_sleep.data.repository.SleepRepository
+import com.peeranm.sleepwell.feature_sleep.data.repository.impl.SleepRepositoryImpl
 import com.peeranm.sleepwell.feature_sleep.use_cases.*
 import com.peeranm.sleepwell.feature_sleep.utils.SleepMapper
 import dagger.Module

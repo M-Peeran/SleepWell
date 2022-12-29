@@ -1,11 +1,10 @@
-package com.peeranm.sleepwell.feature_sleep.data
+package com.peeranm.sleepwell.feature_sleep.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.peeranm.sleepwell.feature_sleep.model.Sleep
-import com.peeranm.sleepwell.feature_sleep.model.SleepEntity
+import com.peeranm.sleepwell.feature_sleep.data.local.entity.SleepEntity
 
 @Dao
 interface SleepDao {
